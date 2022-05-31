@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        />
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
+        <script src="skripta.js"></script>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <h1 class="text-center">Kolona A</h1>
+                    <hr />
+                    <div class="text-center" id="">
+                        <table
+                            style="margin: auto"
+                            class="text-center table table-hover table-dark"
+                            id="tabela1"
+                        >
+                            <th>KOLONA A</th>
+                            <tr>
+                                <td id="kol0" class="kolona1 kolona"></td>
+                            </tr>
+                            <tr>
+                                <td id="kol1" class="kolona1 kolona"></td>
+                            </tr>
+                            <tr>
+                                <td id="kol2" class="kolona1 kolona"></td>
+                            </tr>
+                            <tr>
+                                <td id="kol3" class="kolona1 kolona"></td>
+                            </tr>
+                            <tr>
+                                <td id="res1" class="kolona1"></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <form id="forma1" class="forma">
+                                        <input
+                                            type="text"
+                                            id="kolona1odgovor"
+                                        />
+                                        <button
+                                            type="button"
+                                            id="button"
+                                            class="btn btn-secondary"
+                                        >
+                                            Pokusaj
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="col-6">
+                    <h1 class="text-center">Kolona B</h1>
+                    <hr />
+                    <div class="text-center" id="">
+                        <table
+                            style="margin: auto"
+                            class="text-center table table-hover table-dark"
+                            id="tabela2"
+                        >
+                            <th>KOLONA B</th>
+                            <tr>
+                                <td id="kol5" class="kolona2 kolona"></td>
+                            </tr>
+                            <tr>
+                                <td id="kol6" class="kolona2 kolona"></td>
+                            </tr>
+                            <tr>
+                                <td id="kol7" class="kolona2 kolona"></td>
+                            </tr>
+                            <tr>
+                                <td id="kol8" class="kolona2 kolona"></td>
+                            </tr>
+                            <tr>
+                                <td id="res2" class="kolona2"></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <form id="forma2" class="forma">
+                                        <input
+                                            type="text"
+                                            id="kolona2odgovor"
+                                        />
+                                        <button
+                                            type="button"
+                                            class="btn btn-secondary"
+                                        >
+                                            Pokusaj
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-3">
+                    <table
+                        style="margin: auto"
+                        class="text-center table table-dark"
+                    >
+                        <th id="prio1">Igrac1:</th>
+                        <tr>
+                            <td>Vreme:</td>
+                            <td id="Vreme1"></td>
+                        </tr>
+                        <tr>
+                            <td>Poeni:</td>
+                            <td id="Poeni1"></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-6">
+                    <h1 class="text-center">Glavna Kolona</h1>
+                    <div class="text-center" id="">
+                        <table
+                            style="margin: auto"
+                            class="text-center table table-hover table-dark"
+                            id="tabelaG"
+                        >
+                            <th>Konacno Resenje</th>
+                            <tr>
+                                <td>
+                                    <form id="forma0" class="forma">
+                                        <input
+                                            type="text"
+                                            id="kolona0odgovor"
+                                        />
+                                        <button
+                                            type="button"
+                                            class="btn btn-secondary"
+                                        >
+                                            Pokusaj
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Glavno Vreme:</td>
+                            </tr>
+                            <tr>
+                                <td id="Vreme"></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <button
+                                        type="button"
+                                        class="dalje btn btn-secondary"
+                                    >
+                                        Dalje
+                                    </button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <table
+                        style="margin: auto"
+                        class="text-center table table-dark"
+                    >
+                        <th id="prio2">Igrac2:</th>
+                        <tr>
+                            <td>Vreme:</td>
+                            <td id="Vreme2"></td>
+                        </tr>
+                        <tr>
+                            <td>Poeni:</td>
+                            <td id="Poeni2"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <h1 class="text-center">Kolona C</h1>
+                    <hr />
+                    <div class="text-center" id="">
+                        <table
+                            style="margin: auto"
+                            class="text-center table table-hover table-dark"
+                            id="tabela3"
+                        >
+                            <th>KOLONA C</th>
+                            <tr>
+                                <td id="kol10" class="kolona3 kolona"></td>
+                            </tr>
+                            <tr>
+                                <td id="kol11" class="kolona3 kolona"></td>
+                            </tr>
+                            <tr>
+                                <td id="kol12" class="kolona3 kolona"></td>
+                            </tr>
+                            <tr>
+                                <td id="kol13" class="kolona3 kolona"></td>
+                            </tr>
+                            <tr>
+                                <td id="res3" class="kolona3"></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <form id="forma3" class="forma">
+                                        <input
+                                            type="text"
+                                            id="kolona3odgovor"
+                                        />
+                                        <button
+                                            type="button"
+                                            class="btn btn-secondary"
+                                        >
+                                            Pokusaj
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <h1 class="text-center">Kolona D</h1>
+                    <hr />
+                    <div class="text-center" id="">
+                        <table
+                            style="margin: auto"
+                            class="text-center table table-hover table-dark"
+                            id="tabela4"
+                        >
+                            <th>KOLONA D</th>
+                            <tr>
+                                <td id="kol15" class="kolona4 kolona"></td>
+                            </tr>
+                            <tr>
+                                <td id="kol16" class="kolona4 kolona"></td>
+                            </tr>
+                            <tr>
+                                <td id="kol17" class="kolona4 kolona"></td>
+                            </tr>
+                            <tr>
+                                <td id="kol18" class="kolona4 kolona"></td>
+                            </tr>
+                            <tr>
+                                <td id="res4" class="kolona4"></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <form id="forma4" class="forma">
+                                        <input
+                                            type="text"
+                                            id="kolona4odgovor"
+                                        />
+                                        <button
+                                            type="button"
+                                            class="btn btn-secondary"
+                                        >
+                                            Pokusaj
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

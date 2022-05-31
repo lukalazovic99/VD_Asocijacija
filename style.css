@@ -1,0 +1,14 @@
+.kolona{
+    opacity: 0;
+}
+
+/*tr{
+    background-color: yellow;
+}*/
+.btn:focus,.btn:active {
+    outline: none !important;
+    box-shadow: none;
+}
+body{
+    background-image:url("pozadina.jpeg");
+}
