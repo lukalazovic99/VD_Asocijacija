@@ -9,10 +9,6 @@
 }*/
 $(document).ready(function(){
 
-    $('#res1').hide();
-    $('#res2').hide();
-    $('#res3').hide();
-    $('#res4').hide();
     function storeObject(key,obj) {
         localStorage[key] = JSON.stringify(obj);
     }
@@ -66,10 +62,10 @@ $(document).ready(function(){
         let igra=retrieveObject("igra"+rngnumber);
         
         var resenja=[igra[20],igra[4],igra[9],igra[14],igra[19]]
-        document.getElementById("res1").innerHTML=igra[4];
+        /*document.getElementById("res1").innerHTML=igra[4];
         document.getElementById("res2").innerHTML=igra[9];
         document.getElementById("res3").innerHTML=igra[14];
-        document.getElementById("res4").innerHTML=igra[19];
+        document.getElementById("res4").innerHTML=igra[19];*/
         for(let i=1;i<5;i++){
             
             
@@ -97,11 +93,8 @@ $(document).ready(function(){
             let curforma=$(this).parent();
             let curformaid=curforma.attr('id');
             let br=curformaid.slice(-1);
-            //alert(document.getElementById('kolona'+br+'odgovor').value);
-            //alert(resenja[br]);
             let vrednost=document.getElementById('kolona'+br+'odgovor').value;
             if(resenja[br]==vrednost.charAt(0).toUpperCase()+vrednost.slice(1)){
-                //alert("tacno");
                 
                 curforma.parent().append(resenja[br]).css({'background-color': color});
                 curforma.hide();
@@ -128,28 +121,10 @@ $(document).ready(function(){
                 }
                 if(curforma.attr('id')=='forma0'){
                     tmppoeni+=(kolona1+kolona2+kolona3+kolona4+10);
-                    if(kolona1!=0){
-                        $('#res1').show();
-                        $('.kolona1').css({'opacity':'1','background-color': color});}
-                        $('#forma1').hide();
-                    if(kolona2!=0){
-                        $('#res2').show();
-                        $('.kolona2').css({'opacity':'1','background-color': color});}
-                        $('#forma2').hide();
-                    if(kolona3!=0){
-                        $('#res3').show();
-                        $('.kolona3').css({'opacity':'1','background-color': color});}
-                        $('#forma3').hide();
-                    if(kolona4!=0){
-                        $('#res4').show();
-                        $('.kolona4').css({'opacity':'1','background-color': color});}
-                        $('#forma4').hide();
+                    ispisiResenjaKolona(color);
                     if(turn==1)poeni1+=tmppoeni;
                     if(turn==2)poeni2+=tmppoeni;
-                    storeObject('poeni1',poeni1);
-                    storeObject('poeni2',poeni2);
-                    setTimeout(function(){window.location.replace('pobeda.html')}, 3000);
-                    //window.location.replace('pobeda.html');
+                    kraj();
                 }
                 if(turn==1){
                     poeni1+=tmppoeni;
@@ -183,6 +158,8 @@ $(document).ready(function(){
             
         })
 
+        let currPozadina=1;
+        let maksCurrPozadina=3;
         let poeni1=0;
         let poeni2=0;
         let kolona1=4;
@@ -206,9 +183,10 @@ $(document).ready(function(){
             if(counter>=0){
                 document.getElementById("Vreme").innerHTML=counter;
             }else{
-                storeObject('poeni1',poeni1);
-                storeObject('poeni2',poeni2);
-                window.location.replace('pobeda.html');
+                $("#forma0").parent().append(resenja[0]).css({'background-color': "#20c997"});
+                $("#forma0").hide();
+                ispisiResenjaKolona("#20c997");
+                kraj();
                 clearInterval(myInterval);
             }
         },1000)
@@ -223,10 +201,8 @@ $(document).ready(function(){
                 
                 counter1--;
                 if(counter1>=0){
-                    //tmp++;
                     document.getElementById("prio1").style.backgroundColor="brown";
                     document.getElementById("Vreme1").innerHTML=counter1;
-                    //document.getElementById("Poeni1").innerHTML=tmp;
                 }else{
                     clearInterval(myInterval1);
                     document.getElementById("prio1").style.backgroundColor="#292b2c";
@@ -246,9 +222,7 @@ $(document).ready(function(){
                 
                 counter2--;
                 if(counter2>=0){
-                    //tmp++;
                     document.getElementById("Vreme2").innerHTML=counter2;
-                    //document.getElementById("Poeni1").innerHTML=tmp;
                 }else{
                     clearInterval(myInterval2);
                     document.getElementById("prio2").style.backgroundColor="#292b2c";
@@ -257,36 +231,76 @@ $(document).ready(function(){
             },1000)
         }
 
+        function ispisiResenjaKolona(thisColor){
+            if(kolona1!=0){
+                //$('#res1').show();*4
+                $("#forma1").parent().append(resenja[1]).css({'background-color': thisColor});
+                $('.kolona1').css({'opacity':'1','background-color': thisColor});}
+                $('#forma1').hide();
+            if(kolona2!=0){
+                $("#forma2").parent().append(resenja[2]).css({'background-color': thisColor});
+                $('.kolona2').css({'opacity':'1','background-color': thisColor});}
+                $('#forma2').hide();
+            if(kolona3!=0){
+                $("#forma3").parent().append(resenja[3]).css({'background-color': thisColor});
+                $('.kolona3').css({'opacity':'1','background-color': thisColor});}
+                $('#forma3').hide();
+            if(kolona4!=0){
+                $("#forma4").parent().append(resenja[4]).css({'background-color': thisColor});
+                $('.kolona4').css({'opacity':'1','background-color': thisColor});}
+                $('#forma4').hide();
+        }
         
         $(".kolona1").click(function(){
-            if(enabler==1){
-                $(this).css({'opacity':'1','background-color':'#20c997'});
-            kolona1--;
-            enabler=0;
+            if($(this).hasClass("otvoreno")){
+
+            }else{
+                if(enabler==1){
+                    $(this).css({'opacity':'1','background-color':'#20c997'});
+                    $(this).addClass("otvoreno");
+                kolona1--;
+                enabler=0;
+                }
             }
+            
             
         });
         $(".kolona2").click(function(){
-            if(enabler==1){
-                $(this).css({'opacity':'1','background-color':'#20c997'});
-            kolona2--;
-            enabler=0;
+            if($(this).hasClass("otvoreno")){
+
+            }else{
+                if(enabler==1){
+                    $(this).css({'opacity':'1','background-color':'#20c997'});
+                    $(this).addClass("otvoreno");
+                kolona2--;
+                enabler=0;
+                }
             }
             
         });
         $(".kolona3").click(function(){
-            if(enabler==1){
-                $(this).css({'opacity':'1','background-color':'#20c997'});
-            kolona3--;
-            enabler=0;
+            if($(this).hasClass("otvoreno")){
+
+            }else{
+                if(enabler==1){
+                    $(this).css({'opacity':'1','background-color':'#20c997'});
+                    $(this).addClass("otvoreno");
+                kolona3--;
+                enabler=0;
+                }
             }
             
         });
         $(".kolona4").click(function(){
-            if(enabler==1){
-                $(this).css({'opacity':'1','background-color':'#20c997'});
-            kolona4--;
-            enabler=0;
+            if($(this).hasClass("otvoreno")){
+
+            }else{
+                if(enabler==1){
+                    $(this).css({'opacity':'1','background-color':'#20c997'});
+                    $(this).addClass("otvoreno");
+                kolona4--;
+                enabler=0;
+                }
             }
             
         });
@@ -305,6 +319,27 @@ $(document).ready(function(){
             }
         })
 
+        $(".odustanite").click(function(){
+            $("#forma0").parent().append(resenja[0]).css({'background-color': "#20c997"});
+            $("#forma0").hide();
+            ispisiResenjaKolona("#20c997");
+            kraj();
+        })
+
+        $(".pozadina").click(function(){
+            currPozadina++;
+            if(currPozadina>maksCurrPozadina){
+                currPozadina=1;
+            }
+            let string='url(pozadina'+currPozadina+'.jpg)';
+            $('body').css('background-image',string);
+        })
+
+        function kraj(){
+            storeObject('poeni1',poeni1);
+            storeObject('poeni2',poeni2);
+            setTimeout(function(){window.location.replace('pobeda.html')}, 3000);
+        }
 
     }
 
